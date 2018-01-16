@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arr = [[1,1,[[[[1,1,1,1],1,1],1,1,1],1,1,1],],1]
+    let b = 2
+    let setArr = (arr1) => {
+        arr1.forEach((val,index) => {
+            if(val === 1) {
+                arr1[index] = 8
+            }else if(Array.isArray(val)){
+                setArr(val)
+            }
+        })
+        return arr1
+    }
+
+    console.log('aaa',setArr(arr));
+    console.log('bbb', arr);
+</script>
+</html>
