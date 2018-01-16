@@ -1,45 +1,81 @@
-const Koa = require('koa');
-const fs = require('fs');
-const app = new Koa();
+// const Koa = require('koa');
+// const fs = require('fs');
+// const app = new Koa();
+//
+// function render(page){
+//     return  new Promise((resolve,reject)=>{
+//         let pageUrl = `./page/${page}`;
+//         fs.readFile(pageUrl,"binary",(err,data)=>{
+//             console.log(444);
+//             if(err){
+//                 reject(err)
+//             }else{
+//                 resolve(data);
+//             }
+//         })
+//     })
+// }
+// async function route(url){
+//     let page = '404.html';
+//     switch(url){
+//         case '/':
+//             page ='index.html';
+//             break;
+//         case '/index':
+//             page ='index.html';
+//             break;
+//         case '/todo':
+//             page = 'todo.html';
+//             break;
+//         case '/404':
+//             page = '404.html';
+//             break;
+//         default:
+//             break;
+//     }
+//     let html = await render(page);
+//     return html;
+// }
+// app.use(async(ctx)=>{
+//     let url = ctx.request.url;
+//     let html = await route(url);
+//     ctx.body=html;
+// })
+// app.listen(3000);
+// console.log('starting at 3000');
 
-function render(page){
-    return  new Promise((resolve,reject)=>{
-        let pageUrl = `./page/${page}`;
-        fs.readFile(pageUrl,"binary",(err,data)=>{
-            console.log(444);
+const Koa = require('koa')
+const app = new Koa()
+const fs = require('fs')
+const readHtml = (page) => {
+
+    const localPage = `./page/${page}`
+    return new Promise((resolve, reject) => {
+        fs.readFile(localPage,"binary",(err, res) => {
+            console.log(888)
             if(err){
-                reject(err)
-            }else{
-                resolve(data);
+             reject(err)
+            }else {
+             resolve(res)
             }
         })
     })
 }
-async function route(url){
-    let page = '404.html';
-    switch(url){
-        case '/':
-            page ='index.html';
-            break;
-        case '/index':
-            page ='index.html';
-            break;
-        case '/todo':
-            page = 'todo.html';
-            break;
-        case '/404':
-            page = '404.html';
-            break;
-        default:
-            break;
+const render = async (url) => {
+    let urlObj = {
+        '/':  'index.html',
+        '/index': 'index.html',
+        '/todo': 'todo.html'
     }
-    let html = await render(page);
-    return html;
+    let html = await readHtml(urlObj[url])
+    console.log('11', html)
+    return html
 }
-app.use(async(ctx)=>{
-    let url = ctx.request.url;
-    let html = await route(url);
-    ctx.body=html;
+app.use(async (ctx, next) => {
+    const html = await render(ctx.url)
+    ctx.body = html
 })
-app.listen(3000);
-console.log('starting at 3000');
+
+app.listen('3000',() => {
+    console.log('3000')
+})
