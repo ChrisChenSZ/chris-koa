@@ -13,3 +13,4 @@ app.use(async(ctx) => {
     }
 })
 app.listen(3000)
+// 使用http://127.0.0.1:3000?user=jspang&age=18来访问

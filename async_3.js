@@ -1,12 +1,15 @@
 function takeLongTime() {
     return new Promise(resolve => {
-        setTimeout(() => resolve([1,2]), 1000);
+        setTimeout(() => resolve('11'), 1000);
     });
 }
 
 async function test() {
-    const v = await takeLongTime();
-    console.log(v);
+    let a = '22'
+    const v = await takeLongTime()
+    console.log(v)
+    console.log(a);
 }
-
+let c = '33'
+console.log(c);
 test();
