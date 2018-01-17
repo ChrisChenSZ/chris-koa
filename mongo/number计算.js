@@ -9,8 +9,7 @@ var newInterset=["Sing","Dance","Code"];
 // db.workmate.update({name:'xiaoWang'}, {$unset : {"interest.2" : -1 }})
 
 // db.workmate.update({},{$set:{interset:[]}},{multi:true})
-///1111
-// 222
+
 db.workmate.update({sex:1},{$set:{money:1000}},false,true)
 var resultMessage=db.runCommand({getLastError:1})
 printjson(resultMessage);
