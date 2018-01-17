@@ -20,6 +20,8 @@ page.get('/jspang',async(ctx)=>{
     ctx.body="Page JSPang";
 }).get('/todo',async(ctx)=>{
     ctx.body ='Page ToDo';
+}).get('/',async(ctx) => {
+    ctx.body = 'page'
 })
 
 //装载所有子路由
