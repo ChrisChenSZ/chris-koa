@@ -17,6 +17,7 @@ app.use(async(ctx)=>{
         `;
         ctx.body=html;
     }else if(ctx.url==='/' && ctx.method==='POST'){
+        console.log('ctx.request.body =', ctx.request.body)
         let pastData=await parsePostData(ctx);
         ctx.body=pastData;
     }else{

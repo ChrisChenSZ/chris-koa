@@ -1,11 +1,13 @@
 {
   "name": "chris",
   "dependencies": {
+    "ejs": "^2.5.7",
     "http": "^0.0.0",
     "https": "^1.0.0",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.3.0",
+<<<<<<< HEAD
     "util": "^0.10.3"
   },
   "scripts": {
@@ -17,5 +19,9 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "nodemon": "^1.17.2"
+=======
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.3"
+>>>>>>> fce4c7e1a5f06e1bfcd9f37c036eb3393ef1cba8
   }
 }
