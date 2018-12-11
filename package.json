@@ -7,7 +7,7 @@
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.3.0",
-<<<<<<< HEAD
+    "koa-static": "^4.0.3",
     "util": "^0.10.3"
   },
   "scripts": {
@@ -18,10 +18,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "koa-static": "^4.0.3",
+    "koa-views": "^6.1.3",
     "nodemon": "^1.17.2"
-=======
-    "koa-static": "^4.0.2",
-    "koa-views": "^6.1.3"
->>>>>>> fce4c7e1a5f06e1bfcd9f37c036eb3393ef1cba8
   }
 }
